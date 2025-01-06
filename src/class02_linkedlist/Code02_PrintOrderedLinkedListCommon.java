@@ -5,31 +5,19 @@ import static class01_sort.Code10_HeapSort.heapSort;
 import static class01_sort.Code00_SortComparator.*;
 
 public class Code02_PrintOrderedLinkedListCommon {
-    public static ListNode copyArrayToLinkedList(int[] arr) {
-        // 从数组拷贝到链表
-        if (arr.length == 0) {
-            // 长度为0
-            return null;
-        }
-        ListNode head = new ListNode(arr[0]); // 头节点
-        ListNode tmp = head;
-        for (int j = 1; j < arr.length; j++) {
-            tmp.next = new ListNode(arr[j]);
-            tmp = tmp.next;
-        }
-        return head;
-    }
+	//	打印两个有序链表的公共部分
+	
 
     public static void printOrderedLinkedListCommon(ListNode l1, ListNode l2) {
         ListNode head1 = l1; // 1号链表
         ListNode head2 = l2; // 2号链表
         while (head1 != null && head2 != null) {
-            if (head1.value < head2.value) {
+            if (head1.val < head2.val) {
                 // 小于
                 head1 = head1.next;
-            } else if (head1.value == head2.value) {
+            } else if (head1.val == head2.val) {
                 // 相等打印
-                System.out.print(head1.value + "  ");
+                System.out.print(head1.val + "  ");
                 head1 = head1.next;
                 head2 = head2.next;
             } else {

@@ -1,17 +1,18 @@
 package class02_linkedlist;
 
+
 public class Code00_LinkedListCommon {
     public static class ListNode {
         public ListNode next;
-        public int value;
+        public int val;
 
         public ListNode() {
-            this.value = 0;
+            this.val = 0;
             this.next = null;
         }
 
         public ListNode(int val) {
-            this.value = val;
+            this.val = val;
             this.next = null;
         }
     }
@@ -19,10 +20,10 @@ public class Code00_LinkedListCommon {
     public static class DoublyListNode {
         public DoublyListNode next;
         public DoublyListNode last;
-        public int value;
+        public int val;
 
         public DoublyListNode(int val) {
-            this.value = val;
+            this.val = val;
             this.next = null;
             this.last = null;
         }
@@ -64,7 +65,7 @@ public class Code00_LinkedListCommon {
 
     public static void printLinkedList(ListNode head) {
         while (head != null) {
-            System.out.print(head.value + " ");
+            System.out.print(head.val + " ");
             head = head.next;
         }
         System.out.println();
@@ -73,7 +74,7 @@ public class Code00_LinkedListCommon {
     public static void printDoublyLinkedList(DoublyListNode head) {
         System.out.println("从前往后打印:");
         while (head != null) {
-            System.out.print(head.value + " ");
+            System.out.print(head.val + " ");
             if (head.next == null) {
                 break;
             }
@@ -82,13 +83,26 @@ public class Code00_LinkedListCommon {
         System.out.println();
         System.out.println("从后往前打印:");
         while (head != null) {
-            System.out.print(head.value + " ");
+            System.out.print(head.val + " ");
             head = head.last;
         }
         System.out.println();
         System.out.println("_____________________________");
     }
-
+    public static ListNode copyArrayToLinkedList(int[] arr) {
+        // 从数组拷贝到链表
+        if (arr.length == 0) {
+            // 长度为0
+            return null;
+        }
+        ListNode head = new ListNode(arr[0]); // 头节点
+        ListNode tmp = head;
+        for (int j = 1; j < arr.length; j++) {
+            tmp.next = new ListNode(arr[j]);
+            tmp = tmp.next;
+        }
+        return head;
+    }
     public static void main(String[] args) {
         // TODO Auto-generated method stub
         for (int i = 0; i < 10; i++) {

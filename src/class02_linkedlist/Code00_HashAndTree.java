@@ -21,13 +21,13 @@ public class Code00_HashAndTree {
      * 4)有无伴随数据，是TreeSet和TreeMap唯一的区别，底层的实际结构是一回事
      * 5)有序表和哈希表的区别是，有序表把key按照顺序组织起来，而哈希表完全不组织
      * 6)红黑树、AVL树、size-balance-tree和跳表等都属于有序表结构，只是底层具体实现不同
-     * 7)放入哈希表的东西，如果是基础类型，内部按值传递，内存占用就是这个东西的大小
-     * 8)放入哈希表的东西，如果不是基础类型，必须提供比较器，内部按引用传递，内存占用是这个东西内存地址的大小
+     * 7)放入有序表的东西，如果是基础类型，内部按值传递，内存占用就是这个东西的大小
+     * 8)放入有序表的东西，如果不是基础类型，必须提供比较器，内部按引用传递，内存占用是这个东西内存地址的大小
      *9)不管是什么底层具体实现，只要是有序表，都有以下固定的基本功能和固定的时间复杂度
      */
     public static class ListNodeComparator implements Comparator<ListNode> {
         public int compare(ListNode n1, ListNode n2) {
-            return n1.value - n2.value;
+            return n1.val - n2.val;
         }
     }
 
@@ -39,6 +39,8 @@ public class Code00_HashAndTree {
         // hashSet1的key是基础类型->int类型
         HashSet<Integer> hashSet1 = new HashSet<>();
         hashSet1.add(3);
+        hashSet1.add(3);
+        System.out.println(hashSet1.size());
         System.out.println(hashSet1.contains(3));
         hashSet1.remove(3);
         System.out.println(hashSet1.contains(3));
@@ -48,8 +50,9 @@ public class Code00_HashAndTree {
         mapTest.put(1, "zong");
         mapTest.put(2, "pei");
         mapTest.put(3, "chao");
+        mapTest.put(3, "potato"); //更新
         System.out.println(mapTest.containsKey(1));
-        System.out.println(mapTest.get(1));
+        System.out.println(mapTest.get(3));
         System.out.println(mapTest.get(4));
 
         mapTest.remove(2);

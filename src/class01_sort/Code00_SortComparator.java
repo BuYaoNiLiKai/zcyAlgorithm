@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Code00_SortComparator {
     public static int[] generateRandomArray(int maxSize, int maxValue, boolean needNegative) {
         // 产生随机数组 大小随机 值随机且存在负数
+
         int[] arr = new int[(int) (Math.random() * (maxSize + 1))];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * (maxValue + 1));
@@ -24,7 +25,7 @@ public class Code00_SortComparator {
             newArr[i] = arr[i];
         }
         return newArr;
-  
+
     }
 
     public static void comparator(int[] arr) {
@@ -64,11 +65,9 @@ public class Code00_SortComparator {
         int maxSize = 20;
         int maxValue = 50;
         for (int i = 0; i < testTime; i++) {
+
             int[] arr = generateRandomArray(maxSize, maxValue, true);
-            ;
-            for (int j = 0; j < arr.length; j++) {
-                System.out.print(arr[j] + " ");
-            }
+            printArray(arr);
             System.out.println();
         }
     }
