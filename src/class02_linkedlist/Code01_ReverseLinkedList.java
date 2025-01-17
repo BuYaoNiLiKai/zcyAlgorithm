@@ -28,11 +28,11 @@ public class Code01_ReverseLinkedList {
         while (tmp != null) {
             DoublyListNode help = tmp.next;
             tmp.next = head;
-            head.last = tmp;
+            head.pre = tmp;
             head = tmp;
             tmp = help;
         }
-        head.last = null;
+        head.pre = null;
         return head;
     }
 
