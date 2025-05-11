@@ -5,7 +5,7 @@ import static class01_sort.Code00_SortComparator.*;
 public class COde09_QuickSort {
     public static void quickSort(int[] arr) {
         // 处理特殊情况
-        if (arr == null || arr.length < 1) {
+        if (arr == null || arr.length < 2) {
             return;
         }
         // 整个数组进行快排
